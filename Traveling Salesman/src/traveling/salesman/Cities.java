@@ -12,24 +12,27 @@ package traveling.salesman;
 public class Cities
 {
      private String name;
-     private int ID;
      private boolean visit;
+     private int x;
+     private int y;
 
-    public Cities(String name, int ID, boolean visit)
+    public Cities(String name, boolean visit, int x, int y)
     {
         this.name = name;
-        this.ID = ID;
         this.visit = visit;
+        this.x = x;
+        this.y = y;
     }
-
+    public Cities()
+    {
+        this.name = null;
+        this.x = 0;
+        this.y = 0;
+        this.visit = false;
+    }
     public void setName(String name)
     {
         this.name =name;
-    }
-
-    public void setID(int ID)
-    {
-        this.ID = ID;
     }
      public void setVisit(boolean visit)
      {
@@ -39,10 +42,6 @@ public class Cities
      {
          return name;
      }
-     public int getID()
-     {
-         return ID;
-     }
 
      public boolean getVisit()
      {
@@ -51,6 +50,6 @@ public class Cities
 
      public void makeString()
      {
-         System.out.println("City =" + name + " ID = " + ID + " Visted? " + visit);
+         System.out.println("City =" + name + " Visted? " + visit);
      }
 }

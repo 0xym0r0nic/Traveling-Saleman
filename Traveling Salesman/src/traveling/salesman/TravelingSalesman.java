@@ -14,8 +14,19 @@ public class TravelingSalesman {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) 
+    {
+      Cities acity = new Cities();
+      acity.setName("Something");
+      System.out.println(acity.getVisit());
+      
+      Route aRoute = new Route();
+      
+      
+      if (acity.getVisit() == false)
+      {
+          System.out.println("Do nothing");
+      }
     }
     
 }
