@@ -47,9 +47,16 @@ public class Cities
      {
          return visit;
      }
-
      public void makeString()
      {
-         System.out.println("City =" + name + " Visted? " + visit);
+         System.out.println("City = " + name + " Visted? " + visit);
+     }
+     public int getx()
+     {
+         return x;
+     }
+     public int gety()
+     {
+         return y;
      }
 }
