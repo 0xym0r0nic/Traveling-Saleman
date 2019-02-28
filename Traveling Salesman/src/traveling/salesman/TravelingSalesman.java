@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package traveling.salesman;
-
 /**
  *
  * @author johnn
@@ -29,7 +28,9 @@ public class TravelingSalesman {
       acity[8] = new Cities("I",false,350,550);
       acity[9] = new Cities("J",false,270,350);
       
-      aRoute.calculateDistance();
+      System.out.println(aRoute.getDistance(acity[0], acity[1]));
+      System.out.println(aRoute.getDistance(acity[0], acity[2]));
+      
       
     }
     

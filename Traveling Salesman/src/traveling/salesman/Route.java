@@ -4,59 +4,53 @@
  * and open the template in the editor.
  */
 package traveling.salesman;
-
-import java.util.Arrays;
-import java.util.ArrayList;
 /**
  *
  * @author johnn
  */
 public class Route 
 {
+    private double Distance;
     private double shortestDistance;
     private double totalDistance;
-    private Cities[] visitTracker = new Cities[10];
-    private boolean isVisited = true;
-    private Cities currentCity;
-    private Cities startCity;
-    private Cities nearestNeighbor = new Cities();
+    private Cities[] visitTracker;
     
-    
-    public void initializeCities(Cities[] city)
+    //get the distance between 2 cities
+    public double getDistance(Cities current,Cities neighbor)
     {
-        for(int i=0;i<city.length;i++)
-        {
-            city[i] = new Cities();
-        }
+        double x,y;
+        x = neighbor.getx() - current.getx();
+        y = neighbor.gety() - current.gety();
+        Distance = y/x;
+        if(Distance < 0)
+            Distance = Distance * -1;
+        return Distance;
     }
-    public void changeVisit(Cities aCity)
+    //get the shortest distance between a city and its not visited neighbor
+    public double getShortestDis(Cities current,Cities[] neighbors)
     {
-        if(aCity == startCity)
-            aCity.setVisit(false);
-        else 
-            aCity.setVisit(isVisited);
-    }
-    public void setCurrentCity()
-    {
-        if(startCity == null)
-        {
-            currentCity = startCity;
-        }
-        else
-        {
-            currentCity = nearestNeighbor;
-        }
-    }
-    public void setNearestNeighbor()
-    {
+        //temp will be used to check distaces 
+        double temp;
         
-    }
-    public void setStartCity(Cities startCity)
-    {
-        this.startCity = startCity;
-    }
-    public void calculateDistance()
-    {
-        
-    }
- }
+        int i=0;
+        //by default assume shortest distance leads to city A.
+        shortestDistance = getDistance(current, neighbors[0]);
+        for (Cities neighbor : neighbors) 
+        {
+            if(current != neighbor)
+            {
+                if(neighbor.getVisit() == false)
+                {
+                    if (neighbor.getVisit() == false)
+                    {
+                        temp = getDistance(current,neighbors[i]);
+                        if(temp < shortestDistance);
+                    }
+                }
+                
+            }
+            i++;
+        }
+        return shortestDistance;
+    }    
+}
