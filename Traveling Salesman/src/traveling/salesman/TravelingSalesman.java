@@ -29,7 +29,7 @@ public class TravelingSalesman {
       aCity[8] = new Cities("I",false,350,550);
       aCity[9] = new Cities("J",false,270,350);
       
-      aRoute.getShortestDis(aCity[0], aCity);
+      aRoute.getShortestDis(aCity[4], aCity);
     }
     
 }

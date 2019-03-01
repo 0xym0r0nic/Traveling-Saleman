@@ -45,6 +45,9 @@ public class Route
             shortestDistance = getDistance(tempCity, neighbors[0]);
         else//this is for the first case of searching for shortest distance
             shortestDistance = getDistance(tempCity, neighbors[i+1]);
+        
+        
+        //rework the couple of statements above. they only work if the city is A
        
         for (Cities neighbor : neighbors) 
         {
@@ -62,11 +65,9 @@ public class Route
             } 
          i++;
         }
-        current = new Cities(tempCity);        
+        current = new Cities(tempCity);  
+        
+        System.out.println(current.getName());
         return shortestDistance;
     }    
-    /* 
-        Make the if statements their own methods to make things a little eaiser when putting everything together
-        you are doing alright bud!
-    */
 }
