@@ -30,6 +30,14 @@ public class Cities
         this.y = 0;
         this.visit = false;
     }
+    public Cities(Cities aCity)
+    {
+        this.name = aCity.name;
+        this.visit = aCity.visit;
+        this.x = aCity.x;
+        this.y = aCity.y;
+       
+    }
     public void setName(String name)
     {
         this.name =name;

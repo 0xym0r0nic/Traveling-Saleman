@@ -15,21 +15,21 @@ public class TravelingSalesman {
      */
     public static void main(String[] args) 
     {
-      Cities[] acity = new Cities[10];     
+      Cities[] aCity = new Cities[10];     
       Route aRoute = new Route();
-      acity[0] = new Cities("A",false,100,300);
-      acity[1] = new Cities("B",false,200,130);
-      acity[2] = new Cities("C",false,300,500);
-      acity[3] = new Cities("D",false,500,390);
-      acity[4] = new Cities("E",false,700,300);
-      acity[5] = new Cities("F",false,900,600);
-      acity[6] = new Cities("G",false,800,950);
-      acity[7] = new Cities("H",false,600,560);
-      acity[8] = new Cities("I",false,350,550);
-      acity[9] = new Cities("J",false,270,350);
+      aCity[0] = new Cities("A",false,100,300);
+      aCity[1] = new Cities("B",false,200,130);
+      aCity[2] = new Cities("C",false,300,500);
+      aCity[3] = new Cities("D",false,500,390);
+      aCity[4] = new Cities("E",false,700,300);
+      aCity[5] = new Cities("F",false,900,600);
+      aCity[6] = new Cities("G",false,800,950);
+      aCity[7] = new Cities("H",false,600,560);
+      aCity[8] = new Cities("I",false,350,550);
+      aCity[9] = new Cities("J",false,270,350);
       
-      System.out.println(aRoute.getDistance(acity[0], acity[1]));
-      System.out.println(aRoute.getDistance(acity[0], acity[2]));
+      aRoute.getShortestDis(aCity[0], aCity);
+     
       
       
     }
