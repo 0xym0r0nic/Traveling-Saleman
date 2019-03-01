@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package traveling.salesman;
+import java.lang.Math;
 /**
  *
  * @author johnn
@@ -29,9 +30,6 @@ public class TravelingSalesman {
       aCity[9] = new Cities("J",false,270,350);
       
       aRoute.getShortestDis(aCity[0], aCity);
-     
-      
-      
     }
     
 }
