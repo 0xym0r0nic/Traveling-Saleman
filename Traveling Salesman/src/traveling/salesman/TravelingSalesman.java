@@ -14,6 +14,7 @@ public class TravelingSalesman {
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String[] args) 
     {
       Cities[] aCity = new Cities[10];     
@@ -29,7 +30,9 @@ public class TravelingSalesman {
       aCity[8] = new Cities("I",false,350,550);
       aCity[9] = new Cities("J",false,270,350);
       
-      aRoute.getShortestDis(aCity[4], aCity);
-    }
-    
+      //aRoute.getAllDistances(aCity);
+      aRoute.getShortestDis(aCity[2], aCity);
+      System.out.println(aRoute.getDistance(aCity[2], aCity[4]));
+      System.out.println(aRoute.getDistance(aCity[2], aCity[8]));
+    }    
 }

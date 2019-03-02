@@ -51,23 +51,35 @@ public class Route
        
         for (Cities neighbor : neighbors) 
         {
-            if (neighbor.getVisit() == false)
+            if (current.equals(neighbor) == false)
             {
-                if(current.equals(neighbor) == false)
+                if(neighbor.getVisit() == false)
                 {
                     tempDis = getDistance(tempCity,neighbors[i]);
                     if(tempDis < shortestDistance)
                     {
                         shortestDistance = tempDis;
-                        tempCity = neighbor;
+                        tempCity = new Cities(neighbor);
                     }
                 }
             } 
-         i++;
+            i++;
         }
         current = new Cities(tempCity);  
         
         System.out.println(current.getName());
         return shortestDistance;
-    }    
+    }  
+    
+    public void getAllDistances(Cities[] city)
+    {
+        for(int i =0;i<city.length;i++)
+      {
+          for (int j=0;j<city.length;j++)
+          {
+              if(i < j)
+                System.out.println(city[i].getName()+ " " + city[j].getName() +" "+ getDistance(city[i], city[j]));
+          }
+      }
+    }
 }
