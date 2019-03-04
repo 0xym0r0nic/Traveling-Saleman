@@ -45,3 +45,15 @@ G J 800.5623023850173
 H I 250.19992006393608
 H J 391.1521443121589
 I J 215.40659228538016
+
+
+Closest to A: J
+Closest to B: A
+Closest to C: I
+Closest to D: H
+Closest to E: D
+Closest to F: H
+Closest to G: F
+Closest to H: D
+Closest to I: C
+Closest to J: C
