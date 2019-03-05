@@ -17,7 +17,8 @@ public class TravelingSalesman {
     
     public static void main(String[] args) 
     {
-      Cities[] aCity = new Cities[10];     
+      Cities[] aCity = new Cities[10];
+      Cities Start;
       Route aRoute = new Route();
       aCity[0] = new Cities("A",false,100,300);
       aCity[1] = new Cities("B",false,200,130);
@@ -29,10 +30,22 @@ public class TravelingSalesman {
       aCity[7] = new Cities("H",false,600,560);
       aCity[8] = new Cities("I",false,350,550);
       aCity[9] = new Cities("J",false,270,350);
+      Start = new Cities(aCity[0]);      
+
+      aRoute.getShortestDis(aCity[5], aCity);
+      Start = aRoute.changeCurrrentCity(Start);
+      System.out.println(Start.getName());
       
-      //aRoute.getAllDistances(aCity);
-      aRoute.getShortestDis(aCity[2], aCity);
-      System.out.println(aRoute.getDistance(aCity[2], aCity[4]));
-      System.out.println(aRoute.getDistance(aCity[2], aCity[8]));
+      for(int i =0; i<aCity.length;i++)
+      {
+          aRoute.getShortestDis(Start, aCity);
+          Start = aRoute.changeCurrrentCity(Start);
+          System.out.println(Start.getName());
+      }
+      
+     
+      
+      
+
     }    
 }

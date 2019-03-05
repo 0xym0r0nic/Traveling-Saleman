@@ -15,6 +15,7 @@ public class Route
     private double shortestDistance;
     private double totalDistance = 0;
     private Cities[] visitTracker;
+    private Cities current;
     
     //get the distance between 2 cities
     public double getDistance(Cities current,Cities neighbor)
@@ -55,8 +56,8 @@ public class Route
             {
                 if(neighbor.getVisit() == false)
                 {
-                    tempDis = getDistance(tempCity,neighbors[i]);
-                    if(tempDis < shortestDistance)
+                    tempDis = getDistance(current,neighbors[i]);
+                    if(tempDis <= shortestDistance)
                     {
                         shortestDistance = tempDis;
                         tempCity = new Cities(neighbor);
@@ -66,8 +67,9 @@ public class Route
             i++;
         }
         current = new Cities(tempCity);  
+        this.current = new Cities(current);
         
-        System.out.println(current.getName());
+       //System.out.println(current.getName());
         return shortestDistance;
     }  
     
@@ -81,5 +83,15 @@ public class Route
                 System.out.println(city[i].getName()+ " " + city[j].getName() +" "+ getDistance(city[i], city[j]));
           }
       }
+    }
+    
+    /*
+    Use the getShortestDistance fucntion to find the closest city that has not been visited. if not visited
+    */
+    public Cities changeCurrrentCity(Cities acity)
+    {
+        acity = new Cities(current);
+        return acity;
+       
     }
 }
