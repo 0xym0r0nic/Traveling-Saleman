@@ -17,12 +17,9 @@ public class Route
     private Cities[] visitTracker;
     private Cities current;
     
-    //get the distance between 2 cities
+    //gets the distance between 2 cities
     public double getDistance(Cities current,Cities neighbor)
-    {//Change this method to the distance formula, right now its the slope
-        //distance formula is sqrt((x2-x1)^2+(y2-y1)^2)
-        //make sure to add import.lang.Math
-        //Also Make sure Math.sqrt(Math.abs()); to ensure always positive and distance formula works!
+    {
         double x,y;
         x = neighbor.getx() - current.getx();
         y = neighbor.gety() - current.gety();
@@ -38,7 +35,7 @@ public class Route
     {
         //tempDis will be used to check distaces 
         double tempDis;
-        Cities tempCity = new Cities(current);   
+        Cities tempCity = current;   
         int i=0;
         
         //by default assume shortest distance leads to city A.
@@ -46,10 +43,11 @@ public class Route
             shortestDistance = getDistance(tempCity, neighbors[0]);
         else//this is for the first case of searching for shortest distance
             shortestDistance = getDistance(tempCity, neighbors[i+1]);
+
         
-        
-        //rework the couple of statements above. they only work if the city is A
        
+        
+        
         for (Cities neighbor : neighbors) 
         {
             if (current.equals(neighbor) == false)
@@ -60,17 +58,18 @@ public class Route
                     if(tempDis <= shortestDistance)
                     {
                         shortestDistance = tempDis;
-                        tempCity = new Cities(neighbor);
+                        tempCity = neighbor;
                     }
                 }
             } 
             i++;
         }
-        current = new Cities(tempCity);  
-        this.current = new Cities(current);
         
-       //System.out.println(current.getName());
+        current = tempCity;  
+        current.setVisit(true);
+        this.current = current;
         return shortestDistance;
+       //System.out.println(current.getName()+ " Inside Shortest" + "Visited = " + current.getVisit());
     }  
     
     public void getAllDistances(Cities[] city)
@@ -84,13 +83,14 @@ public class Route
           }
       }
     }
-    
     /*
     Use the getShortestDistance fucntion to find the closest city that has not been visited. if not visited
     */
     public Cities changeCurrrentCity(Cities acity)
     {
-        acity = new Cities(current);
+        //current.setVisit(true);
+        //System.out.println("Current city = " + current.getName() + " Visited = " + current.getVisit());
+        acity = current;
         return acity;
        
     }

@@ -17,34 +17,38 @@ public class TravelingSalesman {
     
     public static void main(String[] args) 
     {
-      Cities[] aCity = new Cities[10];
-      Cities Start;
-      Route aRoute = new Route();
-      aCity[0] = new Cities("A",false,100,300);
-      aCity[1] = new Cities("B",false,200,130);
-      aCity[2] = new Cities("C",false,300,500);
-      aCity[3] = new Cities("D",false,500,390);
-      aCity[4] = new Cities("E",false,700,300);
-      aCity[5] = new Cities("F",false,900,600);
-      aCity[6] = new Cities("G",false,800,950);
-      aCity[7] = new Cities("H",false,600,560);
-      aCity[8] = new Cities("I",false,350,550);
-      aCity[9] = new Cities("J",false,270,350);
-      Start = new Cities(aCity[0]);      
-
-//      aRoute.getShortestDis(aCity[5], aCity);
-//      Start = aRoute.changeCurrrentCity(Start);
-//      System.out.println(Start.getName());
-      
+        Cities[] aCity = new Cities[10];
+        Cities Start;
+        Route aRoute = new Route();
+        aCity[0] = new Cities("A",false,100,300);
+        aCity[1] = new Cities("B",false,200,130);
+        aCity[2] = new Cities("C",false,300,500);
+        aCity[3] = new Cities("D",false,500,390);
+        aCity[4] = new Cities("E",false,700,300);
+        aCity[5] = new Cities("F",false,900,600);
+        aCity[6] = new Cities("G",false,800,950);
+        aCity[7] = new Cities("H",false,600,560);
+        aCity[8] = new Cities("I",false,350,550);
+        aCity[9] = new Cities("J",false,270,350);
+        Start = aCity[0];   
+        Start.setVisit(true);
+        
+        int i =0;
+       
         for (Cities aCity1 : aCity)
         {
-            aRoute.getShortestDis(aCity1, aCity);
+            aRoute.getShortestDis(Start, aCity);
+            System.out.println("Start = " + Start.getName());
             Start = aRoute.changeCurrrentCity(Start);
-            System.out.println(Start.getName());
+            System.out.println("Current city = " + Start.getName() + " Visited = " + Start.getVisit());
+            i++;
+            System.out.println(i);
         }
-      
-     
-      
+        
+//        for(int i =0;i<aCity.length;i++)
+//        {
+//            System.out.println(aCity[i].getName() + " " + aCity[i].getVisit());
+//        }
       
 
     }    
