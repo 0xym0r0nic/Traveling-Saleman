@@ -42,6 +42,7 @@ public class TravelingSalesman {
         }
         
         aRoute.showVisitedCitiesOrder();
+        aRoute.showTotalDistance();
         
 //        for(int i =0;i<aCity.length;i++)
 //        {

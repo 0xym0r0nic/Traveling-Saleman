@@ -5,6 +5,8 @@
  */
 package traveling.salesman;
 import java.lang.Math;
+import java.util.ArrayList;
+import java.util.Locale;
 /**
  *
  * @author johnn
@@ -14,7 +16,7 @@ public class Route
     private double Distance;
     private double shortestDistance;
     private double totalDistance = 0;
-    private Cities[] visitTracker;
+    private ArrayList<Cities> visitTracker = new ArrayList<Cities>();
     private Cities current;
     
     //gets the distance between 2 cities
@@ -60,7 +62,11 @@ public class Route
         current = tempCity;  
         current.setVisit(true);
         this.current = current;
-        /* add a way to insert the current city into the city tracker.*/
+        
+        visitTracker.add(this.current);
+        totalDistance = totalDistance + shortestDistance;
+        //System.out.println("T" + totalDistance +" S" + shortestDistance);
+            
    
         return shortestDistance;
        //System.out.println(current.getName()+ " Inside Shortest" + "Visited = " + current.getVisit());
@@ -68,12 +74,21 @@ public class Route
     
     public void showVisitedCitiesOrder()
     {
-        System.out.print("City order -> ");
+        System.out.print("City order: ");
         
         for (Cities visitTracker1 : visitTracker) 
         {
             System.out.print(visitTracker1.getName() + " -> ");
         }
+        System.out.println();
+    }
+    public void showTotalDistance()
+    {
+        
+        System.out.print("TotalDistance = ");
+        System.out.print(String.format(Locale.US, "%.2f",totalDistance));
+        //System.out.printf("%.2f", totalDistance);
+        System.out.println();
     }
     
     public void getAllDistances(Cities[] city)
