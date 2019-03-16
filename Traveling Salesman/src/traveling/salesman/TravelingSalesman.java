@@ -3,52 +3,44 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package traveling.salesman;
-import java.lang.Math;
+
+import java.util.ArrayList;
+
 /**
  *
  * @author johnn
  */
-public class TravelingSalesman {
-
+public class TravelingSalesman
+{
     /**
      * @param args the command line arguments
      */
-    
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {
-        Cities[] aCity = new Cities[10];
-        Cities Start;
-        Route aRoute = new Route();
-        aCity[0] = new Cities("A",false,100,300);
-        aCity[1] = new Cities("B",false,200,130);
-        aCity[2] = new Cities("C",false,300,500);
-        aCity[3] = new Cities("D",false,500,390);
-        aCity[4] = new Cities("E",false,700,300);
-        aCity[5] = new Cities("F",false,900,600);
-        aCity[6] = new Cities("G",false,800,950);
-        aCity[7] = new Cities("H",false,600,560);
-        aCity[8] = new Cities("I",false,350,550);
-        aCity[9] = new Cities("J",false,270,350);
-        Start = aCity[0];   
-        Start.setVisit(true);
-       
-        for (Cities aCity1 : aCity)
+        ArrayList<City> cities = new ArrayList<>();
+        cities.add(new City("A", false, 100, 300));
+        cities.add(new City("B", false, 200, 130));
+        cities.add(new City("C", false, 300, 500));
+        cities.add(new City("D", false, 500, 390));
+        cities.add(new City("E", false, 700, 300));
+        cities.add(new City("F", false, 900, 600));
+        cities.add(new City("G", false, 800, 950));
+        cities.add(new City("H", false, 600, 560));
+        cities.add(new City("I", false, 350, 550));
+        cities.add(new City("J", false, 270, 350));
+        City startingCity = cities.get(0);
+
+        Route aRoute = new Route(startingCity);
+
+        for (City ignored : cities)
         {
-            aRoute.getShortestDis(Start, aCity);
-            //System.out.println("Start = " + Start.getName());
-            Start = aRoute.changeCurrrentCity(Start);
-            //System.out.println("Current city = " + Start.getName() + " Visited = " + Start.getVisit());
+            aRoute.getShortestDis(startingCity, cities);
+            startingCity = aRoute.getCurrrentCity();
         }
         
         aRoute.showVisitedCitiesOrder();
         aRoute.showTotalDistance();
-        
-//        for(int i =0;i<aCity.length;i++)
-//        {
-//            System.out.println(aCity[i].getName() + " " + aCity[i].getVisit());
-//        }
-      
-
     }    
 }
