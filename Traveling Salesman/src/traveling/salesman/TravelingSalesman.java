@@ -32,18 +32,16 @@ public class TravelingSalesman {
         aCity[9] = new Cities("J",false,270,350);
         Start = aCity[0];   
         Start.setVisit(true);
-        
-        int i =0;
        
         for (Cities aCity1 : aCity)
         {
             aRoute.getShortestDis(Start, aCity);
-            System.out.println("Start = " + Start.getName());
+            //System.out.println("Start = " + Start.getName());
             Start = aRoute.changeCurrrentCity(Start);
-            System.out.println("Current city = " + Start.getName() + " Visited = " + Start.getVisit());
-            i++;
-            System.out.println(i);
+            //System.out.println("Current city = " + Start.getName() + " Visited = " + Start.getVisit());
         }
+        
+        aRoute.showVisitedCitiesOrder();
         
 //        for(int i =0;i<aCity.length;i++)
 //        {

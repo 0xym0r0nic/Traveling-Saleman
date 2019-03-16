@@ -37,16 +37,8 @@ public class Route
         double tempDis;
         Cities tempCity = current;   
         int i=0;
-        
-        //by default assume shortest distance leads to city A.
-        if(current.equals(neighbors[i]) == false)//when checking city not A
-            shortestDistance = getDistance(tempCity, neighbors[0]);
-        else//this is for the first case of searching for shortest distance
-            shortestDistance = getDistance(tempCity, neighbors[i+1]);
-
-        
        
-        
+        shortestDistance = Double.MAX_VALUE;
         
         for (Cities neighbor : neighbors) 
         {
@@ -68,9 +60,21 @@ public class Route
         current = tempCity;  
         current.setVisit(true);
         this.current = current;
+        /* add a way to insert the current city into the city tracker.*/
+   
         return shortestDistance;
        //System.out.println(current.getName()+ " Inside Shortest" + "Visited = " + current.getVisit());
     }  
+    
+    public void showVisitedCitiesOrder()
+    {
+        System.out.print("City order -> ");
+        
+        for (Cities visitTracker1 : visitTracker) 
+        {
+            System.out.print(visitTracker1.getName() + " -> ");
+        }
+    }
     
     public void getAllDistances(Cities[] city)
     {
