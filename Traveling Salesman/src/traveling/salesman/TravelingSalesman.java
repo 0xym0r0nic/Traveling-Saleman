@@ -6,7 +6,9 @@
 
 package traveling.salesman;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.io.PrintWriter;
 
 /**
  *
@@ -40,7 +42,24 @@ public class TravelingSalesman
             startingCity = aRoute.getCurrrentCity();
         }
         
-        aRoute.showVisitedCitiesOrder();
-        aRoute.showTotalDistance();
+//        aRoute.showVisitedCitiesOrder();
+//        aRoute.showTotalDistance();
+        
+        PrintWriter fileOut = null;
+        try
+        {
+            fileOut = new PrintWriter("TSP Result.txt");
+            fileOut.println(aRoute.showVisitedCitiesOrder());
+            fileOut.println(aRoute.showTotalDistance());
+            
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("file not found");
+            System.exit(0);
+        }
+        fileOut.close();
+        
+        
     }    
 }

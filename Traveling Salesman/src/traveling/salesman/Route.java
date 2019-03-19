@@ -29,7 +29,7 @@ class Route
     }
     
     //get the shortest distance between a city and its not visited neighbor
-    void getShortestDis(City current, ArrayList<City> neighbors)
+    public void getShortestDis(City current, ArrayList<City> neighbors)
     {
         //tempDis will be used to check distances
         double tempDis;
@@ -74,7 +74,7 @@ class Route
         }
     }
 
-    void showVisitedCitiesOrder()
+    public String showVisitedCitiesOrder()
     {
         StringBuilder visitedCities = new StringBuilder();
         int count = 0;
@@ -90,11 +90,13 @@ class Route
             }
         }
         System.out.println("City Order: " + visitedCities);
+        return ("City Order: " + visitedCities);
     }
 
-    void showTotalDistance()
+    public String showTotalDistance()
     {
         System.out.println("Total Distance: " + String.format("%.2f", totalDistance));
+        return ("Total Distance: " + String.format("%.2f", totalDistance));
     }
 
     /*
